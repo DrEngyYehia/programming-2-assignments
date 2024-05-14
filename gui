@@ -49,3 +49,22 @@ job_dropdown.pack(pady=5)
 label_loan_amount = tk.Label(root, text="Loan Amount:")
 label_loan_amount.pack()
 entry_loan_amount = tk.Entry(root)
+label_loan_amount = tk.Label(root, text="Loan Amount:")
+label_loan_amount.pack()
+
+entry_loan_amount = tk.Entry(root)
+entry_loan_amount.pack()
+
+label_years = tk.Label(root, text="Number of Years:")
+label_years.pack()
+
+entry_years = tk.Entry(root)
+entry_years.pack()
+
+calculate_button = tk.Button(root, text="Calculate", command=calculate_payment)
+calculate_button.pack(pady=10)
+
+result_label = tk.Label(root, text="")
+result_label.pack()
+
+root.mainloop()
