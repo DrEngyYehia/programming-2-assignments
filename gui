@@ -28,21 +28,30 @@ def calculate_payment():
 
         # Display result
         result_label.config(text=f"Total Loan Amount: ${total_loan:.2f}\n"
-                                  f"Total Interest: ${total_interests:.2f}\n"
-                                  f"Interest Rate: {interest_rate}%\n"
-                                  f"Decreasing Interest Rate: {interest_rate - 1}%\n"
-                                  f"Monthly Payment: ${monthly_payment:.2f}")
+                                f"Total Interest: ${total_interests:.2f}\n"
+                                f"Interest Rate: {interest_rate}%\n"
+                                f"Decreasing Interest Rate: {interest_rate - 1}%\n"
+                                f"Monthly Payment: ${monthly_payment:.2f}")
     except ValueError:
         messagebox.showerror("Error", "Please enter valid input.")
 
-# Add background image
-#bg_image = tk.PhotoImage(file="C:/Users/hp/Downloads/gui.png")
-#bg_label = tk.Label(root, image=bg_image)
-#bg_label.place(relwidth=1, relheight=1) 
+
 
 # GUI setup
 root = tk.Tk()
 root.title("Bank Misr – Plan Your Loan Application")
+
+# color if neeed 
+root.configure(bg='#8B0000', width=700, height=350)
+# Add background image
+try:
+    bg_image = tk.PhotoImage(file="logo-misr-paris-black-retina.png")
+    bg_label = tk.Label(root, image=bg_image)
+    bg_label.place(relwidth=1, relheight=1) 
+except:
+    root.configure(bg='#8B0000', width=700, height=350)
+
+
 
 # Job selection
 job_var = tk.StringVar()
@@ -65,6 +74,8 @@ label_years.pack()
 
 entry_years = tk.Entry(root)
 entry_years.pack()
+
+
 
 calculate_button = tk.Button(root, text="Calculate", command=calculate_payment)
 calculate_button.pack(pady=10)
