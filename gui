@@ -35,6 +35,11 @@ def calculate_payment():
     except ValueError:
         messagebox.showerror("Error", "Please enter valid input.")
 
+# Add background image
+#bg_image = tk.PhotoImage(file="C:/Users/hp/Downloads/gui.png")
+#bg_label = tk.Label(root, image=bg_image)
+#bg_label.place(relwidth=1, relheight=1) 
+
 # GUI setup
 root = tk.Tk()
 root.title("Bank Misr – Plan Your Loan Application")
