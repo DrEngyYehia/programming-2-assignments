@@ -1,7 +1,7 @@
 class Product:
     Supermarket_name = "ABC Supermarket"
 
-    def init(self, product_ID, name, price, manufacturer, weight, expiration_date, year):
+    def __init__(self, product_ID, name, price, manufacturer, weight, expiration_date, year):
         self.product_ID = product_ID
         self.name = name
         self.price = price
@@ -26,8 +26,8 @@ class Product:
 
 
 class Healthy(Product):
-    def init(self, product_ID, name, price, manufacturer, weight, expiration_date, year, calories=0, components=""):
-        super().init(product_ID, name, price, manufacturer, weight, expiration_date, year)
+    def __init__(self, product_ID, name, price, manufacturer, weight, expiration_date, year, calories=0, components=""):
+        super().__init__(product_ID, name, price, manufacturer, weight, expiration_date, year)
         self.calories = calories
         self.components = components
 
@@ -62,6 +62,7 @@ def supermarket_cashier_system():
                 # Add new Product
                 product.name = input("Enter the product name: ")
                 product.price = float(input("Enter the product price: "))
+                product.manufacturer = input("Enter")
                 product.manufacturer = input("Enter the manufacturer name: ")
                 product.weight = float(input("Enter the product weight: "))
                 product.expiration_date = input("Enter the expiration date: ")
@@ -72,126 +73,6 @@ def supermarket_cashier_system():
                 # Display Product Details
                 product.display_product_details()
 
-            elif option == "3":
-                # Change/Edit product_ID
-                new_product_id = input("Enter the new product ID: ")
-                product.set_product_ID(new_product_id)
-                print("Product ID changed successfully!")
-
-            elif option == "4":
-                # Exit the sub-system
-                break
-
-            elif option == "5":
-                # Exit the Supermarket cashier system
-                return
-
-            else:
-                print("Invalid option! Please choose again.")
-
-    elif choice.lower() == "healthy":
-        healthy_product = Healthy("54321", "Protein Bar", 2.99, "Health Foods Inc.", 50, "2025-06-30", 2025)
-        while True:
-            print("Options:")
-            print("1. Add new Healthy Product")
-            print("2. Display Healthy Product Details")
-            print("3. Change/Edit calories")
-            print("4. Check calories and components of Healthy Product")
-            print("5. Compute total calories of the Healthy Product based on weight")
-            print("6. Exit the sub-system")
-            print("7. Exit the Supermarket cashier system")
-            option = input("Choose an option: ")
-            if option == "1":
-                # Add new Healthy Product
-                healthy_product.name = input("Enter the product name: ")
-                healthy_product.price = float(input("Enter the product price: "))
-                healthy_product.manufacturer = input("Enter the manufacturer name: ")
-                healthy_product.weight = float(input("Enter the product weight: "))
-                healthy_product.expiration_date = input("Enter the expiration date: ")
-                healthy_product.year = int(input("Enter the product year: "))
-                healthy_product.calories = float(input("Enter the product calories: "))
-                healthy_product.components = input("Enter the product components: ")
-                print("Healthy product added successfully!")
-
-            elif option == "2":
-                # Display Healthy Product Details
-                healthy_product.display_healthy_product_details()
-
-            elif option == "3":
-                # Change/Edit calories
-                class Product:
-                    Supermarket_name: ['ABC Supermarket']
-
-    def init(self, product_ID, name, price, manufacturer, weight, expiration_date, year):
-        self.product_ID = product_ID
-        self.name = name
-        self.price = price
-        self.manufacturer = manufacturer
-        self.weight = weight
-        self.expiration_date = expiration_date
-        self.year = year
-
-    def display_product_details(self):
-        print("Product Details:")
-        print("Supermarket Name:", self.Supermarket_name)
-        print("Product ID:", self.product_ID)
-        print("Name:", self.name)
-        print("Price:", self.price)
-        print("Manufacturer:", self.manufacturer)
-        print("Weight:", self.weight)
-        print("Expiration Date:", self.expiration_date)
-        print("Year:", self.year)
-
-    def set_product_ID(self, product_ID):
-        self.product_ID = product_ID
-
-
-class Healthy(Product):
-    def init(self, product_ID, name, price, manufacturer, weight, expiration_date, year, calories=0, components=""):
-        super().init(product_ID, name, price, manufacturer, weight, expiration_date, year)
-        self.calories = calories
-        self.components = components
-
-    def add_calories(self, calories):
-        self.calories = calories
-
-    def display_healthy_product_details(self):
-        print("Healthy Product Details:")
-        self.display_product_details()
-        print("Calories:", self.calories)
-        print("Components:", self.components)
-
-    def compute_total_calories(self):
-        total_calories = self.calories * self.weight
-        print("Total Calories:", total_calories)
-
-
-def supermarket_cashier_system():
-    choice = input("Choose the sub-system (Product or Healthy): ")
-    if choice.lower() == "product":
-        product = Product("12345", "Apple", 1.99, "Fruit Company", 100, "2024-12-31", 2024)
-        while True:
-            print("Options:")
-            print("1. Add new Product")
-            print("2. Display Product Details")
-            print("3. Change/Edit product_ID")
-            print("4. Exit the sub-system")
-            print("5. Exit the Supermarket cashier system")
-            option = input("Choose an option: ")
-
-            if option == "1":
-                # Add new Product
-                product.name = input("Enter the product name: ")
-                product.price = float(input("Enter the product price: "))
-                product.manufacturer = input("Enter the manufacturer name: ")
-                product.weight = float(input("Enter the product weight: "))
-                product.expiration_date = input("Enter the expiration date: ")
-                product.year = int(input("Enter the product year: "))
-                print("Product added successfully!")
-
-            elif option == "2":
-                # Display Product Details
-                product.display_product_details()
             elif option == "3":
                 # Change/Edit product_ID
                 new_product_id = input("Enter the new product ID: ")
@@ -243,3 +124,29 @@ def supermarket_cashier_system():
                 new_calories = float(input("Enter the new calories: "))
                 healthy_product.add_calories(new_calories)
                 print("Calories changed successfully!")
+
+            elif option == "4":
+                # Check calories and components of Healthy Product
+                print("Calories:", healthy_product.calories)
+                print("Components:", healthy_product.components)
+
+            elif option == "5":
+                # Compute total calories of the Healthy Product based on weight
+                healthy_product.compute_total_calories()
+
+            elif option == "6":
+                # Exit the sub-system
+                break
+
+            elif option == "7":
+                # Exit the Supermarket cashier system
+                return
+
+            else:
+                print("Invalid option! Please choose again.")
+
+    else:
+        print("Invalid choice! Please choose either 'Product' or 'Healthy'.")
+
+# Call the function to start the system
+supermarket_cashier_system()
