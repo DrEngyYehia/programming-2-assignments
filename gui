@@ -27,16 +27,17 @@ def calculate_payment():
         monthly_payment = total_loan / (years * 12)
 
         # Display result
-        result_label.config(text=f"Your monthly payment will be: ${monthly_payment:.2f}")
+        result_label.config(text=f"Total Loan Amount: ${total_loan:.2f}\n"
+                                  f"Total Interest: ${total_interests:.2f}\n"
+                                  f"Interest Rate: {interest_rate}%\n"
+                                  f"Decreasing Interest Rate: {interest_rate - 1}%\n"
+                                  f"Monthly Payment: ${monthly_payment:.2f}")
     except ValueError:
         messagebox.showerror("Error", "Please enter valid input.")
 
 # GUI setup
 root = tk.Tk()
 root.title("Bank Misr – Plan Your Loan Application")
-
-# Add background im
-# Add logo image
 
 # Job selection
 job_var = tk.StringVar()
@@ -49,7 +50,6 @@ job_dropdown.pack(pady=5)
 label_loan_amount = tk.Label(root, text="Loan Amount:")
 label_loan_amount.pack()
 entry_loan_amount = tk.Entry(root)
-label_loan_amount = tk.Label(root, text="Loan Amount:")
 label_loan_amount.pack()
 
 entry_loan_amount = tk.Entry(root)
